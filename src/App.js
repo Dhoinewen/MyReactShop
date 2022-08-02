@@ -1,7 +1,7 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import {useQuery} from "@apollo/client";
-import {GET_ALL_CATEGORIES, GET_ONE_CAT} from "./querry/category";
+import {GET_ALL_CATEGORIES, GET_ONE_CAT, GET_ONE_PRODUCT} from "./querry/category";
 import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
 
@@ -11,6 +11,7 @@ function App() {
     const [products, setProducts] = useState([])
     const [selectedCategory, setSelectedCategory] = useState("all")
     const [selectedProduct, setSelectedProduct] = useState(undefined)
+    // const [product, setProduct] = useState([])
 
 
     const {data: dataTech, loading: loadingTech} = useQuery(GET_ONE_CAT, {
@@ -18,6 +19,20 @@ function App() {
     });
 
     const {data, loading, error} = useQuery(GET_ALL_CATEGORIES)
+
+    // const {data: oneProductData, loading: oneProductLoading} = useQuery(GET_ONE_PRODUCT, {
+    //     variables: {id: selectedProduct},
+    // })
+    //
+    // console.log(product)
+    //
+    // useEffect(() => {
+    //         if (!oneProductLoading) {
+    //             setProduct(oneProductData.product)
+    //         }
+    //
+    //     },
+    //     [oneProductData]);
 
 
     useEffect(() => {

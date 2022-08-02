@@ -21,3 +21,11 @@ export const GET_ONE_CAT = gql`
     }  
   }
 }`;
+
+
+export const GET_ONE_PRODUCT = gql`
+    query GetOneProduct($id: String!)
+{
+  product(id: $id)
+  {id, name, inStock, description, brand}
+    } `;
