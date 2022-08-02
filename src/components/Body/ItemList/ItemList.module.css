@@ -1,0 +1,29 @@
+
+
+.itemList{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+
+.item {
+    min-width: 200px;
+    min-height: 200px;
+    border: black solid 2px;
+    border-radius: 10px;
+}
+
+img {
+    max-width: 200px;
+    width: 90%;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+img:hover {
+    cursor: pointer;
+}

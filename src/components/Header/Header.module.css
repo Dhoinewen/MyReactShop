@@ -1,0 +1,22 @@
+.header {
+    border: black 2px solid;
+    border-radius: 5px;
+    background-color: beige;
+    padding: 10px;
+}
+
+.categories {
+    display: inline-block;
+    border: black 2px solid;
+    border-radius: 5px;
+    background-color: darkgray;
+    min-width: 100px;
+    text-align: center;
+    margin: 10px;
+
+}
+
+.categories:hover {
+    background-color: red;
+    cursor: pointer;
+}
