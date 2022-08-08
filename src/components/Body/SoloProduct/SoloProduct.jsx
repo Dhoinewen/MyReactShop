@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useQuery} from "@apollo/client";
 import {GET_ONE_PRODUCT} from "../../../querry/category";
+import s from './SoloProduct.module.css'
 
 
 const SoloProduct = (props) => {
@@ -11,8 +12,6 @@ const SoloProduct = (props) => {
         variables: {id: props.selectedProduct},
     })
 
-    console.log(product)
-
     useEffect(() => {
             if (!oneProductLoading) {
                 setProduct(oneProductData.product)
@@ -22,8 +21,9 @@ const SoloProduct = (props) => {
         [oneProductData]);
 
     return (
-        <div>
-            <h2>SoloItem {product.name}</h2>
+        <div className={s.main}>
+            <div className={s.images}>{product.gallery}</div>
+            <h2 className={s.params}>SoloItem {product.name} </h2>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import {useQuery} from "@apollo/client";
-import {GET_ALL_CATEGORIES, GET_ONE_CAT, GET_ONE_PRODUCT} from "./querry/category";
+import {GET_ALL_CATEGORIES, GET_ALL_CURRENCIES, GET_ONE_CAT} from "./querry/category";
 import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
 
@@ -9,9 +9,11 @@ import Body from "./components/Body/Body";
 function App() {
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
-    const [selectedCategory, setSelectedCategory] = useState("all")
+    const [selectedCategory, setSelectedCategory] = useState()
     const [selectedProduct, setSelectedProduct] = useState(undefined)
-    // const [product, setProduct] = useState([])
+    const [currencies, setCurrencies] = useState([])
+    const [selectedCurrency, setSelectedCurrency]= useState()
+
 
 
     const {data: dataTech, loading: loadingTech} = useQuery(GET_ONE_CAT, {
@@ -19,20 +21,7 @@ function App() {
     });
 
     const {data, loading, error} = useQuery(GET_ALL_CATEGORIES)
-
-    // const {data: oneProductData, loading: oneProductLoading} = useQuery(GET_ONE_PRODUCT, {
-    //     variables: {id: selectedProduct},
-    // })
-    //
-    // console.log(product)
-    //
-    // useEffect(() => {
-    //         if (!oneProductLoading) {
-    //             setProduct(oneProductData.product)
-    //         }
-    //
-    //     },
-    //     [oneProductData]);
+    const {data: currenciesData, loading: currenciesLoading} = useQuery(GET_ALL_CURRENCIES)
 
 
     useEffect(() => {
@@ -44,11 +33,22 @@ function App() {
         [data])
 
     useEffect(() => {
+            if (selectedCategory === undefined) {
+                setProducts(undefined)
+            }
             if (!loadingTech) {
                 setProducts(dataTech.category.products)
             }
         },
         [dataTech])
+
+    useEffect(() => {
+            if (!currenciesLoading) {
+                setCurrencies(currenciesData.currencies)
+                setSelectedCurrency(currenciesData.currencies[0])
+            }
+        },
+        [currenciesData])
 
     useEffect(() => {
     }, [selectedCategory])
@@ -70,6 +70,17 @@ function App() {
         <h2>Data error</h2>
     )
 
+    if (currenciesLoading) {
+        return <h2>Loading...</h2>
+    }
+
+    if (selectedCurrency === undefined) {
+        return <h2>Loading...</h2>
+    }
+
+    const selectCurrency = (label) => {
+        setSelectedCurrency(currencies.find(elem => elem.label === label.split(' ')[1]))
+    }
 
     return (
         <div className="App">
@@ -77,12 +88,14 @@ function App() {
                 categories={categories}
                 choseCat={choseCat}
                 selectProduct={selectProduct}
+                currencies = {currencies}
+                onChangeCurrency = {e => selectCurrency(e.target.value)}
 
-            >
 
-            </Header>
-            <Body products={products} category={selectedCategory} selectProduct={selectProduct}
-                  selectedProduct={selectedProduct}></Body>
+            />
+            <Body products={products} selectedCategory={selectedCategory} selectProduct={selectProduct}
+                  selectedProduct={selectedProduct} selectedCurrency={selectedCurrency}
+            />
         </div>
     );
 }

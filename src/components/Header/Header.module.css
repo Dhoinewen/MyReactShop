@@ -3,20 +3,29 @@
     border-radius: 5px;
     background-color: beige;
     padding: 10px;
+    display: inline-block;
 }
 
 .categories {
-    display: inline-block;
+    float: left;
+    margin: 10px;
     border: black 2px solid;
     border-radius: 5px;
-    background-color: darkgray;
     min-width: 100px;
+    background-color: darkgray;
     text-align: center;
-    margin: 10px;
+
 
 }
 
 .categories:hover {
     background-color: red;
     cursor: pointer;
+}
+
+.currencies {
+    float: right;
+    margin: 10px;
+    min-width: 100px;
+
 }

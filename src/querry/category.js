@@ -17,8 +17,12 @@ export const GET_ONE_CAT = gql`
 {
   category(input: {title: $cat}){
   	products{
-      name, gallery, id
-    }  
+      name, gallery, id, prices{
+        currency{
+          label
+        }, amount
+      }
+    }    
   }
 }`;
 
@@ -27,5 +31,14 @@ export const GET_ONE_PRODUCT = gql`
     query GetOneProduct($id: String!)
 {
   product(id: $id)
-  {id, name, inStock, description, brand}
+  {id, name, inStock, description, brand, gallery}
     } `;
+
+
+export const GET_ALL_CURRENCIES = gql`
+    query GetAllCurrencies{
+  currencies
+  {
+    label, symbol
+  }
+}`;

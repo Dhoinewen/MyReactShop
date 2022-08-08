@@ -3,21 +3,24 @@ import s from "./Body.module.css";
 import ItemList from "./ItemList/ItemList";
 import SoloProduct from "./SoloProduct/SoloProduct";
 
-const Body = (props) => {
+const Body = ({selectedProduct, products, selectedCategory, selectProduct, selectedCurrency}) => {
 
     let content
 
-    const selectedProduct = props.selectedProduct
-
-    if (selectedProduct === undefined) {
-        content = <ItemList products={props.products} category={props.selectedCategory}
-                            selectProduct={props.selectProduct}></ItemList>
-    } else {
-        content = <SoloProduct selectedProduct={props.selectedProduct}></SoloProduct>
+    if (products === undefined) {
+        content = 'Chose category'
+    }else {
+        if (selectedProduct === undefined) {
+            content = <ItemList products={products} selectedCategory={selectedCategory}
+                                selectProduct={selectProduct} selectedCurrency={selectedCurrency}></ItemList>
+        } else {
+            content = <SoloProduct selectedProduct={selectedProduct}></SoloProduct>
+        }
     }
 
 
     return (
+
         <div className={s.body}>
             {content}
 

@@ -1,0 +1,13 @@
+.main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+}
+
+.images {
+    border: black 2px solid;
+}
+
+.params {
+    border: black 2px solid;
+}
