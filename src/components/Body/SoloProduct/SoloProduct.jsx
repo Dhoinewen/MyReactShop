@@ -29,12 +29,6 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
         return <h2>Loading...</h2>
     }
 
-    const cartItem = {
-        id: oneProduct.id,
-        gallery: oneProduct.gallery[0],
-        prices: oneProduct.prices
-    }
-
 
     return (
         <div className={s.main}>
@@ -50,7 +44,7 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
                     {oneProduct.prices.find(elem =>
                         elem.currency.label === selectedCurrency.label).amount}
                 </div>
-                <button className={s.addToCartBtn} onClick={() => addToCart(cartItem)}>ADD TO CART</button>
+                <button className={s.addToCartBtn} onClick={() => addToCart(oneProduct)}>ADD TO CART</button>
                 {oneProduct.description}
             </div>
         </div>

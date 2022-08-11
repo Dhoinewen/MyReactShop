@@ -15,6 +15,7 @@ function App() {
     const [currencies, setCurrencies] = useState([])
     const [selectedCurrency, setSelectedCurrency]= useState()
     const [cart, setCart] = useState([])
+    const [orderPageIsOpen, setOrderPageIsOpen] = useState(false)
 
 
 
@@ -88,6 +89,12 @@ function App() {
         setCart([...cart, product])
     }
 
+    const goToCart = (isOpened) => {
+        setOrderPageIsOpen(isOpened)
+    }
+
+    console.log(orderPageIsOpen)
+
 
     return (
         <div className="App">
@@ -98,6 +105,7 @@ function App() {
                 currencies = {currencies}
                 onChangeCurrency = {e => selectCurrency(e.target.value)}
                 cart={cart}
+                goToCart={goToCart}
 
 
             />
@@ -108,6 +116,7 @@ function App() {
                   selectedCurrency={selectedCurrency}
                   setCart={setCart}
                   addToCart={addToCart}
+                  orderPageIsOpen={orderPageIsOpen}
             />
         </div>
     );

@@ -3,18 +3,19 @@ import s from "./Header.module.css"
 import CurrenciesChose from "./CurrenciesChose/CurrenciesChose";
 import HeaderCart from "./HeaderCart/HeaderCart";
 
-const Header = ({choseCat, selectProduct, categories, currencies, onChangeCurrency, cart}) => {
+const Header = ({choseCat, selectProduct, categories, currencies, onChangeCurrency, cart, goToCart}) => {
 
-    const [openCart, setOpenCart] = useState(false)
+    const [openHeaderCart, setOpenHeaderCart] = useState(false)
 
     const selectCat = (cat) => {
         choseCat(cat)
         selectProduct(undefined)
+        goToCart(false)
     }
 
     const cartIsOpen = () => {
-        if (openCart) {
-            return <HeaderCart cart={cart}/>
+        if (openHeaderCart) {
+            return <HeaderCart cart={cart} goToCart={goToCart}/>
         }
     }
 
@@ -26,7 +27,7 @@ const Header = ({choseCat, selectProduct, categories, currencies, onChangeCurren
                          className={s.categories}> {category.name}</div>
                 )}
             </div>
-            <div className={s.cart} onClick={() => setOpenCart(prev => !prev)}>
+            <div className={s.cart} onClick={() => setOpenHeaderCart(prev => !prev)}>
                 {cart.length}
                 <img
                     className={s.cartIcon}
