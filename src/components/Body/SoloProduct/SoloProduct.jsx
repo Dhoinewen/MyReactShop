@@ -4,26 +4,55 @@ import {GET_ONE_PRODUCT} from "../../../querry/category";
 import s from './SoloProduct.module.css'
 
 
-const SoloProduct = (props) => {
+const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
 
-    const [product, setProduct] = useState([])
+    const [oneProduct, setOneProduct] = useState(undefined)
 
     const {data: oneProductData, loading: oneProductLoading} = useQuery(GET_ONE_PRODUCT, {
-        variables: {id: props.selectedProduct},
+        variables: {id: selectedProduct},
     })
 
     useEffect(() => {
             if (!oneProductLoading) {
-                setProduct(oneProductData.product)
+                setOneProduct(oneProductData.product)
             }
 
         },
         [oneProductData]);
 
+
+    if (oneProductLoading) {
+        return <h2>Loading...</h2>
+    }
+
+    if (oneProduct === undefined) {
+        return <h2>Loading...</h2>
+    }
+
+    const cartItem = {
+        id: oneProduct.id,
+        gallery: oneProduct.gallery[0],
+        prices: oneProduct.prices
+    }
+
+
     return (
         <div className={s.main}>
-            <div className={s.images}>{product.gallery}</div>
-            <h2 className={s.params}>SoloItem {product.name} </h2>
+            <div className={s.images}>
+                {oneProduct.gallery.map(imgs => <img key={imgs} alt='product' src={imgs}/> )}
+            </div>
+            <div className={s.params}>
+                <h1>{oneProduct.brand}</h1>
+                <h2>{oneProduct.name} </h2>
+                <div>Price:</div>
+                <div>
+                    {selectedCurrency.symbol}
+                    {oneProduct.prices.find(elem =>
+                        elem.currency.label === selectedCurrency.label).amount}
+                </div>
+                <button className={s.addToCartBtn} onClick={() => addToCart(cartItem)}>ADD TO CART</button>
+                {oneProduct.description}
+            </div>
         </div>
     );
 };

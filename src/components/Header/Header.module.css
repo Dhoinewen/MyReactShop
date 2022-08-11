@@ -29,3 +29,15 @@
     min-width: 100px;
 
 }
+
+.cart {
+    float: right;
+    margin: 10px;
+    min-width: 100px;
+    display: flex;
+}
+
+.cartIcon {
+    width: 16px;
+    margin: 0;
+}

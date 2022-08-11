@@ -1,0 +1,13 @@
+.headerCart {
+    position: absolute;
+    right: 15%;
+    top: 7%;
+    height: 200px;
+    width: 208px;
+    background-color: green;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    z-index: 999;
+}

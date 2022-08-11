@@ -4,6 +4,7 @@ import {useQuery} from "@apollo/client";
 import {GET_ALL_CATEGORIES, GET_ALL_CURRENCIES, GET_ONE_CAT} from "./querry/category";
 import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
+import Cart from "./components/Cart/Cart";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     const [selectedProduct, setSelectedProduct] = useState(undefined)
     const [currencies, setCurrencies] = useState([])
     const [selectedCurrency, setSelectedCurrency]= useState()
+    const [cart, setCart] = useState([])
 
 
 
@@ -82,6 +84,11 @@ function App() {
         setSelectedCurrency(currencies.find(elem => elem.label === label.split(' ')[1]))
     }
 
+    const addToCart = (product) => {
+        setCart([...cart, product])
+    }
+
+
     return (
         <div className="App">
             <Header
@@ -90,11 +97,17 @@ function App() {
                 selectProduct={selectProduct}
                 currencies = {currencies}
                 onChangeCurrency = {e => selectCurrency(e.target.value)}
+                cart={cart}
 
 
             />
-            <Body products={products} selectedCategory={selectedCategory} selectProduct={selectProduct}
-                  selectedProduct={selectedProduct} selectedCurrency={selectedCurrency}
+            <Body products={products}
+                  selectedCategory={selectedCategory}
+                  selectProduct={selectProduct}
+                  selectedProduct={selectedProduct}
+                  selectedCurrency={selectedCurrency}
+                  setCart={setCart}
+                  addToCart={addToCart}
             />
         </div>
     );

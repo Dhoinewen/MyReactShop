@@ -10,4 +10,21 @@
 
 .params {
     border: black 2px solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.addToCartBtn {
+    width: 100%;
+    min-height: 30px;
+    background-color: lightgreen;
+    border: none;
+    border-radius:8px;
+    margin-top: 10px;
+    font-size: larger;
+}
+
+.addToCartBtn:hover {
+    background-color: green;
+    cursor: pointer;
 }

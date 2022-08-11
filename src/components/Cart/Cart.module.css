@@ -1,0 +1,9 @@
+.body {
+    width: 100%;
+    border: 3px solid black;
+}
+
+
+.red {
+    background-color: red;
+}

@@ -3,7 +3,7 @@ import s from "./Body.module.css";
 import ItemList from "./ItemList/ItemList";
 import SoloProduct from "./SoloProduct/SoloProduct";
 
-const Body = ({selectedProduct, products, selectedCategory, selectProduct, selectedCurrency}) => {
+const Body = ({selectedProduct, products, selectedCategory, selectProduct, selectedCurrency, addToCart}) => {
 
     let content
 
@@ -14,7 +14,11 @@ const Body = ({selectedProduct, products, selectedCategory, selectProduct, selec
             content = <ItemList products={products} selectedCategory={selectedCategory}
                                 selectProduct={selectProduct} selectedCurrency={selectedCurrency}></ItemList>
         } else {
-            content = <SoloProduct selectedProduct={selectedProduct}></SoloProduct>
+            content = <SoloProduct
+                selectedProduct={selectedProduct}
+                addToCart={addToCart}
+                selectedCurrency={selectedCurrency}
+            ></SoloProduct>
         }
     }
 
