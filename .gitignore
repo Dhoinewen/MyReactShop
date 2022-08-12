@@ -24,5 +24,6 @@ yarn-error.log*
 
 *idea/inspectionProfiles/
 *.idea/vcs.xml
+*package-lock.json
 
 

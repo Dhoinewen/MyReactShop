@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useQuery} from "@apollo/client";
 import {GET_ONE_PRODUCT} from "../../../querry/category";
 import s from './SoloProduct.module.css'
+import Attributes from "./Attributes/Attributes";
 
 
 const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
@@ -30,6 +31,7 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
     }
 
 
+
     return (
         <div className={s.main}>
             <div className={s.images}>
@@ -38,13 +40,16 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
             <div className={s.params}>
                 <h1>{oneProduct.brand}</h1>
                 <h2>{oneProduct.name} </h2>
+                <div>
+                    <Attributes attributes={oneProduct.attributes}/>
+                </div>
                 <div>Price:</div>
                 <div>
                     {selectedCurrency.symbol}
                     {oneProduct.prices.find(elem =>
                         elem.currency.label === selectedCurrency.label).amount}
                 </div>
-                <button className={s.addToCartBtn} onClick={() => addToCart(oneProduct)}>ADD TO CART</button>
+                <button disabled={!oneProduct.inStock} className={s.addToCartBtn} onClick={() => addToCart(oneProduct)}>ADD TO CART</button>
                 {oneProduct.description}
             </div>
         </div>

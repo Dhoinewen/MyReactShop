@@ -93,9 +93,6 @@ function App() {
         setOrderPageIsOpen(isOpened)
     }
 
-    console.log(orderPageIsOpen)
-
-
     return (
         <div className="App">
             <Header
