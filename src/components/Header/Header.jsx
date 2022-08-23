@@ -3,7 +3,7 @@ import s from "./Header.module.css"
 import CurrenciesChose from "./CurrenciesChose/CurrenciesChose";
 import HeaderCart from "./HeaderCart/HeaderCart";
 
-const Header = ({choseCat, selectProduct, categories, currencies, onChangeCurrency, cart, goToCart}) => {
+const Header = ({choseCat, selectProduct, categories, currencies, onChangeCurrency, cart, goToCart, selectedCategory}) => {
 
     const [openHeaderCart, setOpenHeaderCart] = useState(false)
 
@@ -19,16 +19,29 @@ const Header = ({choseCat, selectProduct, categories, currencies, onChangeCurren
         }
     }
 
+    const categoryIsSelect = (name) => {
+        if (name === selectedCategory) {
+            return s.selectedCategoryBlock
+        }else {
+            return s.categoryBlock
+        }
+    }
+
     return (
         <header className={s.header}>
-            <div>
+            <div className={s.categoriesBlock}>
                 {categories.map(category =>
-                    <div key={category.name} onClick={() => selectCat(category.name)}
-                         className={s.categories}> {category.name}</div>
+                        <span className={categoryIsSelect(category.name)} key={category.name}>
+                    <button key={category.name} onClick={() => selectCat(category.name)}
+                            className={s.categories}> {category.name}
+                    </button>
+                </span>
                 )}
             </div>
             <div className={s.cart} onClick={() => setOpenHeaderCart(prev => !prev)}>
-                {cart.length}
+                <div className={s.cartLength}>
+                    <a>{cart.length}</a>
+                </div>
                 <img
                     className={s.cartIcon}
                     alt='cartIcon'

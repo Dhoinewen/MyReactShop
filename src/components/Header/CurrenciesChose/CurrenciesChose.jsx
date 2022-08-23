@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './CurrenciesChose.module.css'
 
 const CurrenciesChose = ({currencies, onChangeCurrency}) => {
 

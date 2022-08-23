@@ -1,6 +1,6 @@
 .App {
     display: grid;
-    max-width: 1500px;
+    width: 1440px;
     margin: 0 auto;
     grid-gap: 10px;
 }

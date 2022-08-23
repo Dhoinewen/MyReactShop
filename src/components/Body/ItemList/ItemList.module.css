@@ -1,35 +1,76 @@
-
-
 .itemList{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
 }
 
-
-
-
-img {
-    max-width: 200px;
-    max-height: 360px;
-    width: 90%;
-    margin: auto;
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
+.selectedCategory {
+    color: #1D1F22;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 160%;
+    text-transform: uppercase;
 }
 
-img:hover {
-    cursor: pointer;
+.cost {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    margin-left: 16px;
+}
+
+.productName {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 160%;
+    margin-left: 16px;
+}
+
+img {
+    height: 330px;
+    max-width: 354px;
+    display: block;
+    margin: 16px auto 24px;
 }
 
 .item {
     position: relative;
-    min-width: 200px;
-    min-height: 200px;
-    border: black solid 2px;
-    border-radius: 10px;
+    width: 386px;
+    height: 444px;
+    transition: box-shadow 70ms 70ms;
+}
+
+.addCart {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #5ECE7B;
+    top: 304px;
+    left: 287px;
+    visibility: hidden;
+}
+
+.addCartIcon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin: 14px;
+}
+
+.item:hover{
+    box-shadow: 0 0 15px 5px darkgray;
+    cursor: pointer;
+}
+
+.item:hover .addCart{
+    visibility: visible;
 }
 
 .item h2 {
@@ -37,26 +78,27 @@ img:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0%;
+    opacity: 0;
 }
 
 .outOfStockItem {
     position: relative;
-    min-width: 200px;
-    min-height: 200px;
-    border: black solid 2px;
-    border-radius: 10px;
-    background-color: gray;
-}
-
-.outOfStockItem img {
-    opacity: 50%;
+    width: 386px;
+    height: 444px;
+    opacity: 35%;
 }
 
 .outOfStockItem h2 {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 25.42%;
+    right: 25.71%;
+    top: 44.24%;
+    bottom: 43.94%;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 160%;
+    color: #8D8F9A;
     opacity: 100%;
 }

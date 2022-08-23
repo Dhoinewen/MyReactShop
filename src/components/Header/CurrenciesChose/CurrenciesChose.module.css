@@ -1,0 +1,25 @@
+select {
+    border: none;
+    margin: 10px;
+    color: #1D1F22;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    align-items: center;
+    text-align: center;
+}
+
+
+select:active, select:focus{
+    outline:none;
+
+}
+
+option {
+    border: none;
+}
+
+option:hover {
+    background-color: darkgray;
+}

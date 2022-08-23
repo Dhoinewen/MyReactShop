@@ -103,7 +103,7 @@ function App() {
                 onChangeCurrency = {e => selectCurrency(e.target.value)}
                 cart={cart}
                 goToCart={goToCart}
-
+                selectedCategory={selectedCategory}
 
             />
             <Body products={products}

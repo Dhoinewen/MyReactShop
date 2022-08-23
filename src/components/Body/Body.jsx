@@ -9,7 +9,7 @@ const Body = ({selectedProduct, products, selectedCategory, selectProduct, selec
     let content
 
     if (products === undefined) {
-        content = 'Chose category'
+        content = <h2 className={s.selectedCategory}>Chose category</h2>
     }else {
         if (selectedProduct === undefined) {
             content = <ItemList products={products} selectedCategory={selectedCategory}

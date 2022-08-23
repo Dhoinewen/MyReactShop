@@ -35,7 +35,7 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
     return (
         <div className={s.main}>
             <div className={s.images}>
-                {oneProduct.gallery.map(imgs => <img key={imgs} alt='product' src={imgs}/> )}
+                {oneProduct.gallery.map(imgs => <img key={imgs} alt='product' src={imgs} alt='productimg'/> )}
             </div>
             <div className={s.params}>
                 <h1>{oneProduct.brand}</h1>
@@ -50,7 +50,7 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
                         elem.currency.label === selectedCurrency.label).amount}
                 </div>
                 <button disabled={!oneProduct.inStock} className={s.addToCartBtn} onClick={() => addToCart(oneProduct)}>ADD TO CART</button>
-                {oneProduct.description}
+                <div dangerouslySetInnerHTML={{__html: oneProduct.description}}/>
             </div>
         </div>
     );

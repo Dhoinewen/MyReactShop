@@ -1,0 +1,21 @@
+.attribName {
+    color: green;
+}
+
+.attribItems {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.attribItem {
+    color: blueviolet;
+    margin-right: 10px;
+    padding: 5px;
+    border: solid black 2px;
+
+}
+
+
+.attribItem:hover {
+    padding: 7px;
+}
