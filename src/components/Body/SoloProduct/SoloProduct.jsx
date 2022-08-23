@@ -32,25 +32,30 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
 
 
 
+
     return (
         <div className={s.main}>
             <div className={s.images}>
                 {oneProduct.gallery.map(imgs => <img key={imgs} alt='product' src={imgs} alt='productimg'/> )}
             </div>
             <div className={s.params}>
-                <h1>{oneProduct.brand}</h1>
-                <h2>{oneProduct.name} </h2>
+                <div className={s.title}>
+                    <h1>{oneProduct.brand}</h1>
+                    <h2>{oneProduct.name} </h2>
+                </div>
                 <div>
                     <Attributes attributes={oneProduct.attributes}/>
                 </div>
-                <div>Price:</div>
-                <div>
+                <div className={s.price}>
+                    <div>
+                        Price:
+                    </div>
                     {selectedCurrency.symbol}
                     {oneProduct.prices.find(elem =>
                         elem.currency.label === selectedCurrency.label).amount}
                 </div>
                 <button disabled={!oneProduct.inStock} className={s.addToCartBtn} onClick={() => addToCart(oneProduct)}>ADD TO CART</button>
-                <div dangerouslySetInnerHTML={{__html: oneProduct.description}}/>
+                <div className={s.description} dangerouslySetInnerHTML={{__html: oneProduct.description}}/>
             </div>
         </div>
     );

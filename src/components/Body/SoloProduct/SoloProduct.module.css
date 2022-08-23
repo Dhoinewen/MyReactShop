@@ -2,29 +2,67 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 20px;
+    color: #1D1F22;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
 }
 
 .images {
     border: black 2px solid;
 }
 
+.title {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+}
+
 .params {
-    border: black 2px solid;
-    border-radius: 5px;
     padding: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
 }
 
 .addToCartBtn {
     width: 100%;
-    min-height: 30px;
-    background-color: lightgreen;
+    height: 52px;
+    background-color: #5ECE7B;
     border: none;
-    border-radius:8px;
     margin-top: 10px;
-    font-size: larger;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
 }
 
 .addToCartBtn:hover {
     background-color: green;
     cursor: pointer;
+}
+
+.price {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    padding-top: 10px;
+}
+
+.description {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.description h1 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    font-size: 32px;
 }

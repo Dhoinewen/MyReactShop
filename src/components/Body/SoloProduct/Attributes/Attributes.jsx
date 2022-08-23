@@ -9,7 +9,7 @@ const Attributes = ({attributes}) => {
             {attributes.map(attrib => (
                     <div key={attrib.id}>
                         <div className={s.attribName}>
-                            {attrib.name}
+                            {attrib.name}:
                         </div>
                         <div className={s.attribItems}>
                             {attrib.items.map(item => <span style={{background: item.value}} className={s.attribItem}

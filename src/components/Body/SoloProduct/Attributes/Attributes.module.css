@@ -1,5 +1,10 @@
 .attribName {
-    color: green;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    padding-bottom: 10px;
 }
 
 .attribItems {
@@ -8,11 +13,14 @@
 }
 
 .attribItem {
-    color: blueviolet;
     margin-right: 10px;
     padding: 5px;
     border: solid black 2px;
-
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
 }
 
 
