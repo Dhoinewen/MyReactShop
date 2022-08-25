@@ -12,7 +12,6 @@ import { Pagination } from "swiper";
 
 const ProductImgs = ({gallery}) => {
 
-    console.log(gallery)
 
     return (
         <div className="altBody">

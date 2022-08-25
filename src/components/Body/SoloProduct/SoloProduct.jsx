@@ -31,8 +31,6 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
         return <h2>Loading...</h2>
     }
 
-    console.log(oneProduct)
-
 
 
     return (
