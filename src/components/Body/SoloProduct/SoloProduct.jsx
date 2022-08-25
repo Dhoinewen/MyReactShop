@@ -3,6 +3,7 @@ import {useQuery} from "@apollo/client";
 import {GET_ONE_PRODUCT} from "../../../querry/category";
 import s from './SoloProduct.module.css'
 import Attributes from "./Attributes/Attributes";
+import ProductImgs from "./ProductImgs/ProductImgs";
 
 
 const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
@@ -30,13 +31,14 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
         return <h2>Loading...</h2>
     }
 
+    console.log(oneProduct)
 
 
 
     return (
         <div className={s.main}>
             <div className={s.images}>
-                {oneProduct.gallery.map(imgs => <img key={imgs} alt='product' src={imgs} alt='productimg'/> )}
+                <ProductImgs gallery={oneProduct.gallery}></ProductImgs>
             </div>
             <div className={s.params}>
                 <div className={s.title}>
