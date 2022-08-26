@@ -23,6 +23,16 @@
     line-height: 18px;
 }
 
+.selectedAtribItem {
+    margin-right: 10px;
+    padding: 5px;
+    border: solid red 2px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
 
 .attribItem:hover {
     background-color: #e0e0e0;

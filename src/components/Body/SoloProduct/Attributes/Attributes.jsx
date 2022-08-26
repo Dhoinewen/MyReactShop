@@ -5,7 +5,6 @@ const Attributes = ({attributes}) => {
 
     const [selectedAttributes, setSelectedAttributes] = useState([])
 
-    console.log(selectedAttributes)
 
     const addToSelectedAttrib = (attribSet, attrib) => {
         if (selectedAttributes.find(item => item.AttribSetID === attribSet.id) === undefined) {
@@ -19,6 +18,20 @@ const Attributes = ({attributes}) => {
                 ))
         }
     }
+    const isSelectedAttrib = (attribSet, attrib) => {
+        const test = selectedAttributes.find(item =>
+            item.AttribSetID === attribSet.id)
+        if (test === undefined) {
+            return s.attribItem
+        } else {
+            if (test.AttribId.id === attrib.id) {
+                return s.selectedAtribItem
+            } else {
+                return s.attribItem
+            }
+        }
+
+    }
 
     return (
         <div>
@@ -30,7 +43,7 @@ const Attributes = ({attributes}) => {
                         <div className={s.attribItems}>
                             {attrib.items.map(item =>
                                 <span onClick={() => addToSelectedAttrib(attrib, item)}
-                                      style={{background: item.value}} className={s.attribItem}
+                                      style={{background: item.value}} className={isSelectedAttrib(attrib, item)}
                                       key={item.id}>{item.displayValue}
                             </span>)}
                         </div>
