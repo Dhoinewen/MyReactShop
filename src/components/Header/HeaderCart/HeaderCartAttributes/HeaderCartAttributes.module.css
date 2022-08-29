@@ -1,0 +1,38 @@
+.attribName {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+
+.attribItem {
+    display: inline-block;
+    margin: 5px 5px 5px 0px;
+    padding: 5px;
+    border: solid black 2px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+}
+
+.selectedAtribItem {
+    display: inline-block;
+    margin: 5px 5px 5px 0px;
+    padding: 5px;
+    border: solid red 2px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+}
+
+.attribItem:hover {
+    background-color: #e0e0e0;
+}

@@ -10,6 +10,8 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
 
     const [oneProduct, setOneProduct] = useState(undefined)
 
+    const [selectedAttributes, setSelectedAttributes] = useState([])
+
     const {data: oneProductData, loading: oneProductLoading} = useQuery(GET_ONE_PRODUCT, {
         variables: {id: selectedProduct},
     })
@@ -31,6 +33,13 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
         return <h2>Loading...</h2>
     }
 
+    const cartItems = () => {
+        const newObject = {
+            ...oneProduct
+        }
+        newObject.selectedAttributes = selectedAttributes
+        addToCart(newObject)
+    }
 
 
     return (
@@ -44,7 +53,7 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
                     <h2>{oneProduct.name} </h2>
                 </div>
                 <div>
-                    <Attributes attributes={oneProduct.attributes}/>
+                    <Attributes attributes={oneProduct.attributes} setAttributes={setSelectedAttributes}/>
                 </div>
                 <div className={s.price}>
                     <div>
@@ -54,7 +63,9 @@ const SoloProduct = ({selectedProduct, addToCart, selectedCurrency}) => {
                     {oneProduct.prices.find(elem =>
                         elem.currency.label === selectedCurrency.label).amount}
                 </div>
-                <button disabled={!oneProduct.inStock} className={s.addToCartBtn} onClick={() => addToCart(oneProduct)}>ADD TO CART</button>
+                <button disabled={!oneProduct.inStock} className={s.addToCartBtn} onClick={() => cartItems()}>ADD TO
+                    CART
+                </button>
                 <div className={s.description} dangerouslySetInnerHTML={{__html: oneProduct.description}}/>
             </div>
         </div>

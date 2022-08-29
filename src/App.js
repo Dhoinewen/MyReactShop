@@ -16,6 +16,7 @@ function App() {
     const [selectedCurrency, setSelectedCurrency]= useState()
     const [cart, setCart] = useState([])
     const [orderPageIsOpen, setOrderPageIsOpen] = useState(false)
+    const [totalPrice, setTotalPrice] = useState()
 
 
 
@@ -55,6 +56,15 @@ function App() {
 
     useEffect(() => {
     }, [selectedCategory])
+
+    useEffect(() => {
+        let calculatedTotalPrice = 0
+        cart.forEach(product => {
+            calculatedTotalPrice += product.prices.find(item => item.currency.label === selectedCurrency.label).amount
+        })
+
+        setTotalPrice(calculatedTotalPrice)
+    }, [cart, selectedCurrency])
 
     const choseCat = num => {
         setSelectedCategory(num);
@@ -104,6 +114,8 @@ function App() {
                 cart={cart}
                 goToCart={goToCart}
                 selectedCategory={selectedCategory}
+                selectedCurrency={selectedCurrency}
+                totalPrice={totalPrice}
 
             />
             <Body products={products}

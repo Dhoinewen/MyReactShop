@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './Attributes.module.css'
 
-const Attributes = ({attributes}) => {
+const Attributes = ({attributes, setAttributes}) => {
 
     const [selectedAttributes, setSelectedAttributes] = useState([])
 
@@ -32,6 +32,11 @@ const Attributes = ({attributes}) => {
         }
 
     }
+
+    useEffect(() => {
+        setAttributes(selectedAttributes)
+    }, [selectedAttributes])
+
 
     return (
         <div>

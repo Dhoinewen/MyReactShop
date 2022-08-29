@@ -3,7 +3,18 @@ import s from "./Header.module.css"
 import CurrenciesChose from "./CurrenciesChose/CurrenciesChose";
 import HeaderCart from "./HeaderCart/HeaderCart";
 
-const Header = ({choseCat, selectProduct, categories, currencies, onChangeCurrency, cart, goToCart, selectedCategory}) => {
+const Header = ({
+                    choseCat,
+                    selectProduct,
+                    categories,
+                    currencies,
+                    onChangeCurrency,
+                    cart,
+                    goToCart,
+                    selectedCategory,
+                    selectedCurrency,
+                    totalPrice
+                }) => {
 
     const [openHeaderCart, setOpenHeaderCart] = useState(false)
 
@@ -15,14 +26,15 @@ const Header = ({choseCat, selectProduct, categories, currencies, onChangeCurren
 
     const cartIsOpen = () => {
         if (openHeaderCart) {
-            return <HeaderCart cart={cart} goToCart={goToCart}/>
+            return <HeaderCart cart={cart} goToCart={goToCart} selectedCurrency={selectedCurrency}
+                               totalPrice={totalPrice}/>
         }
     }
 
     const categoryIsSelect = (name) => {
         if (name === selectedCategory) {
             return s.selectedCategoryBlock
-        }else {
+        } else {
             return s.categoryBlock
         }
     }
