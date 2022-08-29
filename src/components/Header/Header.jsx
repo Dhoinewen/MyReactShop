@@ -13,7 +13,8 @@ const Header = ({
                     goToCart,
                     selectedCategory,
                     selectedCurrency,
-                    totalPrice
+                    totalPrice,
+                    setCart
                 }) => {
 
     const [openHeaderCart, setOpenHeaderCart] = useState(false)
@@ -27,7 +28,7 @@ const Header = ({
     const cartIsOpen = () => {
         if (openHeaderCart) {
             return <HeaderCart cart={cart} goToCart={goToCart} selectedCurrency={selectedCurrency}
-                               totalPrice={totalPrice}/>
+                               totalPrice={totalPrice} setCart={setCart}/>
         }
     }
 

@@ -48,7 +48,7 @@ const Attributes = ({attributes, setAttributes}) => {
                         <div className={s.attribItems}>
                             {attrib.items.map(item =>
                                 <span onClick={() => addToSelectedAttrib(attrib, item)}
-                                      style={{background: item.value}} className={isSelectedAttrib(attrib, item)}
+                                      style={{background: item.value, color: item.value}} className={isSelectedAttrib(attrib, item)}
                                       key={item.id}>{item.displayValue}
                             </span>)}
                         </div>

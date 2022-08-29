@@ -1,6 +1,7 @@
 .headerCart {
     position: absolute;
     width: 325px;
+    max-height: 600px;
     right: 11%;
     top: 7.8%;
     min-width: 200px;
@@ -10,6 +11,7 @@
     display: flex;
     z-index: 999;
     box-shadow: 0 0 15px 5px darkgray;
+    overflow-y: scroll;
 }
 
 
@@ -89,6 +91,17 @@
 .totalPrice {
     float: right;
     display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    color: #1D1F22;
+}
+
+.currencySymbol {
+    display: inline-block;
+    float: right;
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 700;

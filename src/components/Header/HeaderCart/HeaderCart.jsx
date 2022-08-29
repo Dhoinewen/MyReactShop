@@ -2,7 +2,18 @@ import React from 'react';
 import s from './HeaderCart.module.css'
 import HeaderCartAttributes from "./HeaderCartAttributes/HeaderCartAttributes";
 
-const HeaderCart = ({cart, goToCart, selectedCurrency, totalPrice}) => {
+const HeaderCart = ({cart, goToCart, selectedCurrency, totalPrice, setCart}) => {
+
+
+    const changeAttrib = (changedProduct) => {
+        let newCart = cart.map(product =>
+            product.id === changedProduct.id
+            ? changedProduct
+                : product
+        )
+        setCart(newCart)
+
+    }
 
 
     return (
@@ -27,7 +38,7 @@ const HeaderCart = ({cart, goToCart, selectedCurrency, totalPrice}) => {
                                     elem.currency.label === selectedCurrency.label).amount}
                             </div>
                             <div>
-                                <HeaderCartAttributes product={product}/>
+                                <HeaderCartAttributes product={product} changeAttrib={changeAttrib}/>
                             </div>
                         </div>
                         <div className={s.imgBox}>
@@ -40,6 +51,7 @@ const HeaderCart = ({cart, goToCart, selectedCurrency, totalPrice}) => {
             <div className={s.totalPriceBox}>
                 <div className={s.total}>Total</div>
                 <div className={s.totalPrice}>{totalPrice}</div>
+                <div className={s.currencySymbol}>{selectedCurrency.symbol}</div>
             </div>
             <div className={s.buttonBox}>
                 <button disabled className={s.iDontKnowButton}>

@@ -4,7 +4,6 @@ import {useQuery} from "@apollo/client";
 import {GET_ALL_CATEGORIES, GET_ALL_CURRENCIES, GET_ONE_CAT} from "./querry/category";
 import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
-import Cart from "./components/Cart/Cart";
 
 
 function App() {
@@ -63,7 +62,7 @@ function App() {
             calculatedTotalPrice += product.prices.find(item => item.currency.label === selectedCurrency.label).amount
         })
 
-        setTotalPrice(calculatedTotalPrice)
+        setTotalPrice(calculatedTotalPrice.toFixed(2))
     }, [cart, selectedCurrency])
 
     const choseCat = num => {
@@ -116,6 +115,7 @@ function App() {
                 selectedCategory={selectedCategory}
                 selectedCurrency={selectedCurrency}
                 totalPrice={totalPrice}
+                setCart={setCart}
 
             />
             <Body products={products}

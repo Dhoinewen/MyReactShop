@@ -1,8 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './HeaderCartAttributes.module.css'
 
-const HeaderCartAttributes = ({product}) => {
+const HeaderCartAttributes = ({product, changeAttrib}) => {
 
+    const [selectedAttributes, setSelectedAttributes] = useState(product.selectedAttributes)
+    const [changedProduct, setChangedProduct] = useState(product)
+
+    useEffect(() => {
+        let newObject = {
+            ...changedProduct,
+            selectedAttributes: selectedAttributes
+        }
+        setChangedProduct(newObject)
+    }, [selectedAttributes])
+
+
+    useEffect(() => {
+        changeAttrib(changedProduct)
+    }, [changedProduct])
+
+
+    const addToSelectedAttrib = (attribSet, attrib) => {
+        if (selectedAttributes.find(item => item.AttribSetID === attribSet.id) === undefined) {
+            setSelectedAttributes([...selectedAttributes, {AttribSetID: attribSet.id, AttribId: attrib}])
+        } else {
+            setSelectedAttributes(prevState =>
+                prevState.map(item =>
+                    item.AttribSetID === attribSet.id
+                        ? {...item, AttribId: attrib}
+                        : item
+                ))
+        }
+    }
 
     const isSelectedAttrib = (attribSet, attrib) => {
         const test = product.selectedAttributes.find(item => item.AttribSetID === attribSet.id)
@@ -18,7 +47,6 @@ const HeaderCartAttributes = ({product}) => {
 
     }
 
-
     return (
         <div>
             {product.attributes.map(attrib => (
@@ -29,7 +57,8 @@ const HeaderCartAttributes = ({product}) => {
                         <div>
                             {attrib.items.map(item =>
                                 <span
-                                    style={{background: item.value}}
+                                    onClick={() => addToSelectedAttrib(attrib, item)}
+                                    style={{background: item.value, color: item.value}}
                                     key={item.id}
                                     className={isSelectedAttrib(attrib, item)}
                                 >
