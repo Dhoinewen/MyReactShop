@@ -8,8 +8,6 @@ import CartAttributes from "./CartAttrubutes/CartAttributes";
 
 const Cart = ({cart, selectedCurrency, totalPrice, setCart}) => {
 
-    console.log(cart)
-
     const changeAttrib = (changedProduct) => {
         let newCart = cart.map(product =>
             product.id === changedProduct.id
