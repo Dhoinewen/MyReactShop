@@ -126,6 +126,9 @@ function App() {
                   setCart={setCart}
                   addToCart={addToCart}
                   orderPageIsOpen={orderPageIsOpen}
+                  cart={cart}
+                  totalPrice={totalPrice}
+                  setCart={setCart}
             />
         </div>
     );

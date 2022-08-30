@@ -4,13 +4,25 @@ import ItemList from "./ItemList/ItemList";
 import SoloProduct from "./SoloProduct/SoloProduct";
 import Cart from "../Cart/Cart";
 
-const Body = ({selectedProduct, products, selectedCategory, selectProduct, selectedCurrency, addToCart, orderPageIsOpen}) => {
+const Body = ({
+                  selectedProduct,
+                  products,
+                  selectedCategory,
+                  selectProduct,
+                  selectedCurrency,
+                  addToCart,
+                  orderPageIsOpen,
+                  cart,
+                  totalPrice,
+                  setCart
+              }) => {
 
     let content
 
+
     if (products === undefined) {
         content = <h2 className={s.selectedCategory}>Chose category</h2>
-    }else {
+    } else {
         if (selectedProduct === undefined) {
             content = <ItemList products={products} selectedCategory={selectedCategory}
                                 selectProduct={selectProduct} selectedCurrency={selectedCurrency}></ItemList>
@@ -26,10 +38,11 @@ const Body = ({selectedProduct, products, selectedCategory, selectProduct, selec
     if (orderPageIsOpen) {
         return (
             <div className={s.body}>
-                <Cart/>
+                <Cart cart={cart} selectedCurrency={selectedCurrency} totalPrice={totalPrice} setCart={setCart}/>
             </div>
         )
     }
+
 
     return (
 

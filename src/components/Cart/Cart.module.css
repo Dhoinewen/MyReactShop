@@ -1,9 +1,126 @@
 .body {
     width: 100%;
-    border: 3px solid black;
 }
 
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #1D1F22;
+}
 
-.red {
-    background-color: red;
+.productBox {
+    display: grid;
+    grid-template-columns: 9fr 1fr 3fr;
+    grid-gap: 5px;
+}
+
+.textBox {
+    margin-left: 15px;
+}
+
+.addBox {
+}
+
+.brand {
+    margin-top: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    color: #1D1F22;
+}
+
+.name {
+    margin-top: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 27px;
+    color: #1D1F22;
+}
+
+.cost {
+    margin-top: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: #1D1F22;
+}
+
+.imgBox {
+
+}
+
+.imgBox img{
+    height: 288px;
+    object-fit: contain;
+}
+
+.totalBox {
+    margin-top: 20px;
+}
+
+.tax {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1D1F22;
+}
+
+.quantity {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1D1F22;
+}
+
+.totalPrice {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1D1F22;
+}
+
+.someNumber {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: #1D1F22;
+    margin-left: 15px;
+}
+
+.myBtn {
+    margin-top: 15px;
+    margin-bottom: 35px;
+    border: none;
+    width: 279px;
+    height: 43px;
+    background: #5ECE7B;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.myBtn:hover {
+    background: green;
 }
